@@ -45,7 +45,7 @@ class _HomeTabState extends State<HomeTab> {
               child: Badge(
                 badgeColor: CustomColors.customContrastColor,
                 badgeContent: const Text(
-                  '2',
+                  '3',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 12,
