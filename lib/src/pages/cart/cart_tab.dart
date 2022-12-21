@@ -4,6 +4,8 @@ import 'package:greengrocer/src/models/cart_item_model.dart';
 import 'package:greengrocer/src/services/utils_services.dart';
 import 'package:greengrocer/src/config/app_data.dart' as app_data;
 
+import '../../models/oders_model.dart';
+import '../widgets/payment_dialog.dart';
 import 'components/card_title.dart';
 
 class CartTab extends StatefulWidget {
@@ -22,8 +24,14 @@ class _CartTabState extends State<CartTab> {
     });
   }
 
-  double cartTotalPrice() {
-    double total = 0;
+  void addItemFromCart(CartItemModel cartItemModel) {
+    setState(() {
+      cartTotalPrice(price: cartItemModel.item.price);
+    });
+  }
+
+  double cartTotalPrice({double price = 0.0}) {
+    double total = price;
     for (var item in app_data.cartItems) {
       total += item.totalPrice();
     }
@@ -33,6 +41,15 @@ class _CartTabState extends State<CartTab> {
 
   @override
   Widget build(BuildContext context) {
+    OrderModel order = OrderModel(
+      id: 0,
+      createDateTime: DateTime.now(),
+      overdueDateTime: DateTime.now().add(const Duration(days: 2)),
+      items: app_data.cartItems,
+      status: 'pending_payment',
+      copyAndPaste: '8d7bb22f-188d-4b92-84e0-82c5d0f61d60',
+      total: cartTotalPrice(),
+    );
     return Scaffold(
       appBar: AppBar(
         title: const Text('Carrinho'),
@@ -45,6 +62,7 @@ class _CartTabState extends State<CartTab> {
                 return CardTitle(
                   cartItem: app_data.cartItems[index],
                   remove: removeItemFromCart,
+                  adiciona: addItemFromCart,
                 );
               },
               itemCount: app_data.cartItems.length,
@@ -93,7 +111,16 @@ class _CartTabState extends State<CartTab> {
                     ),
                     onPressed: () async {
                       bool? result = await showOrderConfirmation();
-                      print(result);
+                      if (result ?? false) {
+                        showDialog(
+                          context: context,
+                          builder: (context) {
+                            return PaymentDialog(
+                              order: order,
+                            );
+                          },
+                        );
+                      }
                     },
                     child: const Text(
                       'Concluir pedido',

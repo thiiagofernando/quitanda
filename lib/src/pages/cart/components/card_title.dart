@@ -5,10 +5,12 @@ import 'package:greengrocer/src/pages/widgets/quantity_widget.dart';
 import 'package:greengrocer/src/services/utils_services.dart';
 
 class CardTitle extends StatefulWidget {
-  const CardTitle({super.key, required this.cartItem, required this.remove});
+  const CardTitle(
+      {super.key, required this.cartItem, required this.remove, required this.adiciona});
 
   final CartItemModel cartItem;
   final Function(CartItemModel cartItemModel) remove;
+  final Function(CartItemModel cartItemModel) adiciona;
 
   @override
   State<CardTitle> createState() => _CardTitleState();
@@ -55,6 +57,8 @@ class _CardTitleState extends State<CardTitle> {
               widget.cartItem.quantity = quantity;
               if (quantity == 0) {
                 widget.remove(widget.cartItem);
+              } else if (quantity > 0) {
+                widget.adiciona(widget.cartItem);
               }
             });
           },

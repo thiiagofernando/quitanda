@@ -2,6 +2,7 @@ import 'package:greengrocer/src/models/cart_item_model.dart';
 import 'package:greengrocer/src/models/user_model.dart';
 
 import '../models/item_model.dart';
+import '../models/oders_model.dart';
 
 ItemModel apple = ItemModel(
   description:
@@ -89,3 +90,52 @@ UserModel user = UserModel(
   cpf: '123.456.789-23',
   password: '',
 );
+
+List<OrderModel> ordes = [
+  OrderModel(
+    id: 1,
+    createDateTime: DateTime.parse('2022-12-15 12:30:00.340'),
+    overdueDateTime: DateTime.parse('2022-12-23 13:30:00.340'),
+    items: [
+      CartItemModel(
+        item: manga,
+        quantity: 3,
+      ),
+      CartItemModel(
+        item: apple,
+        quantity: 2,
+      ),
+    ],
+    status: 'pending_payment',
+    copyAndPaste: '482a6d2a-6c29-48ed-b285-0b527cfe1649',
+    total: 33.5,
+  ),
+  OrderModel(
+    id: 2,
+    createDateTime: DateTime.parse('2022-12-20 12:30:00.340'),
+    overdueDateTime: DateTime.parse('2022-12-20 13:30:00.340'),
+    items: [
+      CartItemModel(
+        item: papaya,
+        quantity: 2,
+      ),
+    ],
+    status: 'delivered',
+    copyAndPaste: '482a6d2a-6c29-48ed-b285-0b527cfe1647',
+    total: 32,
+  ),
+  OrderModel(
+    id: 3,
+    createDateTime: DateTime.parse('2022-12-20 12:30:00.340'),
+    overdueDateTime: DateTime.parse('2022-12-21 17:30:00.340'),
+    items: [
+      CartItemModel(
+        item: guava,
+        quantity: 2,
+      ),
+    ],
+    status: 'shipping',
+    copyAndPaste: '482a6d2a-6c29-48ed-b285-0b527cfe1647',
+    total: 46,
+  ),
+];
