@@ -1,4 +1,5 @@
 import 'package:greengrocer/src/models/cart_item_model.dart';
+import 'package:greengrocer/src/models/user_model.dart';
 
 import '../models/item_model.dart';
 
@@ -80,3 +81,11 @@ List<String> categorias = [
   'Temperos',
   'Cereais',
 ];
+
+UserModel user = UserModel(
+  name: 'Joao',
+  email: 'joao@gmail.com',
+  phone: '88 8 9999-9999',
+  cpf: '123.456.789-23',
+  password: '',
+);
