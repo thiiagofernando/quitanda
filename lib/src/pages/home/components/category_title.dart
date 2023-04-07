@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:greengrocer/src/config/custom_colors.dart';
 
@@ -7,17 +5,16 @@ class CategoryTitle extends StatelessWidget {
   final String categoy;
   final bool isSelected;
   final VoidCallback onPressed;
-  const CategoryTitle(
-      {super.key, required this.categoy, required this.isSelected, required this.onPressed});
+  const CategoryTitle({super.key, required this.categoy, required this.isSelected, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
       onTap: onPressed,
       child: Align(
         alignment: Alignment.center,
         child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 6),
+          padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 3),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             color: isSelected ? CustomColors.customSwatchColor : Colors.transparent,
