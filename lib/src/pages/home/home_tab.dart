@@ -2,8 +2,10 @@ import 'package:add_to_cart_animation/add_to_cart_animation.dart';
 import 'package:add_to_cart_animation/add_to_cart_icon.dart';
 import 'package:badges/badges.dart' as badges;
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:greengrocer/src/config/custom_colors.dart';
 import 'package:greengrocer/src/config/app_data.dart' as app_data;
+import 'package:greengrocer/src/services/utils_services.dart';
 import 'components/category_title.dart';
 import 'components/item_title.dart';
 
@@ -23,6 +25,7 @@ class _HomeTabState extends State<HomeTab> {
     runAddToCartAnimation(gkimage);
   }
 
+  final UtilsServices utils = UtilsServices();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -145,8 +148,7 @@ class _HomeTabState extends State<HomeTab> {
                 ),
                 itemCount: app_data.items.length,
                 itemBuilder: (_, index) {
-                  return ItemTitle(
-                      item: app_data.items[index], cartAnimationMethod: itemSelectCartAnimations);
+                  return ItemTitle(item: app_data.items[index], cartAnimationMethod: itemSelectCartAnimations);
                 },
               ),
             ),
