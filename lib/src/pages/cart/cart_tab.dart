@@ -5,7 +5,7 @@ import 'package:greengrocer/src/services/utils_services.dart';
 import 'package:greengrocer/src/config/app_data.dart' as app_data;
 
 import '../../models/oders_model.dart';
-import '../widgets/payment_dialog.dart';
+import '../common_widgets/payment_dialog.dart';
 import 'components/card_title.dart';
 
 class CartTab extends StatefulWidget {

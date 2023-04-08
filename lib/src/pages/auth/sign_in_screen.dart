@@ -4,8 +4,8 @@ import 'package:greengrocer/src/pages/auth/sign_up_screen.dart';
 import 'package:greengrocer/src/pages/base/base_screen.dart';
 
 import '../../config/custom_colors.dart';
-import '../widgets/app_name_widget.dart';
-import '../widgets/custom_text_field.dart';
+import '../common_widgets/app_name_widget.dart';
+import '../common_widgets/custom_text_field.dart';
 
 class SignInScreen extends StatelessWidget {
   const SignInScreen({super.key});

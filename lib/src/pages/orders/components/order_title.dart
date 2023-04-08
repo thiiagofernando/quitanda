@@ -3,7 +3,7 @@ import 'package:greengrocer/src/models/cart_item_model.dart';
 import 'package:greengrocer/src/models/oders_model.dart';
 
 import '../../../services/utils_services.dart';
-import '../../widgets/payment_dialog.dart';
+import '../../common_widgets/payment_dialog.dart';
 import 'order_status_widget.dart';
 
 class OrderTitle extends StatelessWidget {

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:greengrocer/src/config/custom_colors.dart';
 import 'package:greengrocer/src/pages/auth/sign_in_screen.dart';
 
-import '../widgets/app_name_widget.dart';
+import '../common_widgets/app_name_widget.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
